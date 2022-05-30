@@ -1,2 +1,9 @@
-PUT  http://localhost:3000/
+POST http://localhost:3000/users HTTP/1.1
+Content-Type: application/json
+
+{
+    "name": "Richard",
+    "course": "bg-nodejs",
+    "year": "2022"
+}
 

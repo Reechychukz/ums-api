@@ -5,12 +5,12 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 let mongoose = require('mongoose');
 
-var indexRouter = require('./routes/index');
+//var indexRouter = require('./routes/users');
 var usersRouter = require('./routes/users');
 
 var app = express();
 
-mongoose.connect('mongodb://localhost:27017/umsdb', {}, function(error){
+mongoose.connect('mongodb://0.0.0.0:27017/ums', function(error){
   if(error) console.log(error);
   console.log("Connected to database successfully");
 }); 
@@ -24,7 +24,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
+//app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
 // catch 404 and forward to error handler
