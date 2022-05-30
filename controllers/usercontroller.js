@@ -1,9 +1,15 @@
-const {crusdOperations} = require('../models/usermodel');
+const {crudsOperations: crusdOperations} = require('../models/usermodel');
 function showError(err){
     if(err) console.log(err);
 }
-function index(req, res, next){
-    res.render('index', {title: 'Express'});
+function get(req, res, next){
+    crusdOperations.find({}, '', function(err, records){
+        showError(err);
+        res.json({
+            successful: true,
+            records
+        })
+    });
 }
 
 function handlePost(request, response){
@@ -24,15 +30,4 @@ function handlePost(request, response){
     response.send("This is a post request");
 }
 
-function handlePut(request, response){
-    response.send("This is a put request");
-}
-
-function handlePatch(request, response){
-    response.send("This is a patch request");
-}
-
-function handleDelete(request, response){
-    response.send("This is a delete request");
-}
-module.exports = {index, handlePost, handlePut, handlePatch, handleDelete};
+module.exports = {get, handlePost};

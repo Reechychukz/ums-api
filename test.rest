@@ -7,3 +7,4 @@ Content-Type: application/json
     "year": "2022"
 }
 
+GET http://localhost:3000/users HTTP/1.1

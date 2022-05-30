@@ -8,6 +8,6 @@ const crudSchema = new Schema({
     year: String
 });
 
-const crusdOperations = mongoose.model('crude', crudSchema);
+const crudsOperations = mongoose.model('crude', crudSchema);
 
-module.exports = {crusdOperations}
+module.exports = {crudsOperations: crudsOperations}
