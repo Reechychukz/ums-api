@@ -2,14 +2,22 @@ var express = require('express');
 var router = express.Router();
 const {
     get, 
-    handlePost
-} = require('../controllers/usercontroller');
+    registerUser,
+    loginUser
+} = require('../controllers/auth');
+const { check } = require('../auth-middlewares/checkIfLoggedIn');
 
-const {crudsOperations: crusdOperations} = require('../models/usermodel')
+//restricted route
+router.get('/users', check, get);
 
-/* GET home page. */
-router.get('/',  get);
+router.post('/register', registerUser);
 
-router.post('/', handlePost);
+router.post('/login', loginUser);
+
+//unrestricted get route
+router.get('/general', function(req, res){
+    res.send("Anyone can access this route");
+});
+
 
 module.exports = router;
