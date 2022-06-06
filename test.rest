@@ -1,10 +1,12 @@
-POST http://localhost:3000/users HTTP/1.1
+GET http://localhost:3000/users HTTP/1.1
 Content-Type: application/json
+#Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
 
 {
-    "name": "Richard",
-    "course": "bg-nodejs",
-    "year": "2022"
+    "userName": "Richard",
+    "email": "kodecamp@kodecamp.com",
+    "password": "Richard",
+    "course": "CS",
+    "year": "2016"
 }
 
-GET http://localhost:3000/users HTTP/1.1
