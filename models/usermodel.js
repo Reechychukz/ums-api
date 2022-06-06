@@ -1,13 +1,15 @@
-//const { stringify } = require("jade/lib/utils");
 const mongoose = require("mongoose");
 const {Schema} = mongoose;
 
-const crudSchema = new Schema({
-    name: String,
+const user = new Schema({
+    userName: String,
+    email: String,
+    password: String,
     course: String,
-    year: String
+    year: String,
+    role: String
 });
 
-const crudsOperations = mongoose.model('crude', crudSchema);
+const userSchema = mongoose.model('users', user);
 
-module.exports = {crudsOperations: crudsOperations}
+module.exports = {userSchema};
